@@ -27,12 +27,12 @@ public class BookmarkController {
         return ResponseEntity.ok(bookmarkService.getBookmarks(user.getId()));
     }
 
-    @PostMapping("bookmark/add/{article_id}")
+    @PostMapping("/add/{article_id}")
     public ResponseEntity<BookmarkResponse> addBookmark(@AuthenticationPrincipal UserPrincipal user, @PathVariable Long article_id) {
         return ResponseEntity.ok(bookmarkService.addBookmark(user.getId(),article_id));
     }
 
-    @DeleteMapping("/bookmark/del/{article_id}")
+    @DeleteMapping("/del/{article_id}")
     public ResponseEntity<Map<String, Boolean>> deleteBookmark(@PathVariable Long article_id, @AuthenticationPrincipal UserPrincipal user) {
         return ResponseEntity.ok(Map.of("success", bookmarkService.deleteBookmark(user.getId(), article_id)));
     }

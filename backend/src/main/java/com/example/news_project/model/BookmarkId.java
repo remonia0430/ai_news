@@ -11,6 +11,15 @@ public class BookmarkId {
     @Column(name = "article_id")
     private Long articleId;
 
+    public BookmarkId(Long articleId, Long userId) {
+        this.articleId = articleId;
+        this.userId = userId;
+    }
+
+    public BookmarkId() {
+
+    }
+
     public Long getUserId() {
         return userId;
     }

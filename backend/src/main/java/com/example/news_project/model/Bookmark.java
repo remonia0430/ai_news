@@ -70,8 +70,9 @@ public class Bookmark {
         isDeleted = deleted;
     }
     
-    public static Bookmark createBookmark(User user, Article article) {
+    public static Bookmark createBookmark(User user, Article article, BookmarkId id) {
         Bookmark bookmark = new Bookmark();
+        bookmark.id = id;
         bookmark.setUser(user);
         bookmark.setArticle(article);
         bookmark.setCreateAt(LocalDateTime.now());
