@@ -48,7 +48,8 @@ public class UserController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/admin")
-    public ResponseEntity<PageResponse<UserResponse>> getUserAll(@RequestParam int page, @RequestParam int page_size) {
+    public ResponseEntity<PageResponse<UserResponse>> getUserAll(@RequestParam(defaultValue = "1") int page,
+                                                                 @RequestParam(defaultValue = "10") int page_size) {
         return ResponseEntity.ok(service.getAllUsers(page, page_size));
     }
 

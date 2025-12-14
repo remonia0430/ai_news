@@ -27,7 +27,8 @@ public class ArticleController {
     }
 
     @GetMapping
-    public ResponseEntity<PageResponse<ArticleResponseLite>> getPagedArticles(@RequestParam int page, @RequestParam int page_size) {
+    public ResponseEntity<PageResponse<ArticleResponseLite>> getPagedArticles(@RequestParam(defaultValue = "1") int page,
+                                                                              @RequestParam(defaultValue = "10") int page_size) {
         return ResponseEntity.ok(articleService.getPaged(page, page_size));
     }
 
